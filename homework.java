@@ -1,35 +1,35 @@
 import java.util.Scanner;
 
 public class homework {
-    private static double[] dataBuffer;
-    private static int currentIndex = 0;
+    private static double[] Buffer_data;
+    private static int Index = 0;
     private static double sum = 0.0;
     private static double  max_sum = 0.0;
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        dataBuffer = new double[5];
-        currentIndex = 0;
+        Buffer_data = new double[5];
+        Index = 0;
         sum = 0.0;
 
-        System.out.println(5 + "°³ÀÇ º¯·®°ªÀ» ºóÄ­À¸·Î ºĞ¸®ÇÏ¿© ÀÔ·ÂÇÏ¼¼¿ä:");
+        System.out.println(5 + "ê°œì˜ ë³€ëŸ‰ê°’ì„ ë¹ˆì¹¸ìœ¼ë¡œ ë¶„ë¦¬í•˜ì—¬ ì…ë ¥í•˜ì„¸ìš”:");
 
         while (scanner.hasNextDouble()) {
             double value = scanner.nextDouble();
-            if (currentIndex == dataBuffer.length) {
-                sum -= dataBuffer[currentIndex % dataBuffer.length];
+            if (Index == Buffer_data.length) {
+                sum -= Buffer_data[Index % Buffer_data.length];
             }
 
-            dataBuffer[currentIndex % dataBuffer.length] = value;
+            Buffer_data[Index % Buffer_data.length] = value;
             sum += value;
-            currentIndex++;
+            Index++;
 
-            int divisor = currentIndex > dataBuffer.length ? dataBuffer.length : currentIndex;
+            int divisor = Index > Buffer_data.length ? Buffer_data.length : Index;
             max_sum = sum / divisor;
 
-            System.out.println("xbar:" +currentIndex +" :" + sum / divisor);
-            if(currentIndex==5) {
-            	System.out.println("5°³ º¯·®ÀÇ Æò±Õ :" + max_sum);
+            System.out.println("xbar:" +Index +" :" + sum / divisor);
+            if(Index==5) {
+            	System.out.println("5ê°œ ë³€ëŸ‰ì˜ í‰ê·  :" + max_sum);
             }
 
         }
